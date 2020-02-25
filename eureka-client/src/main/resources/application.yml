@@ -1,0 +1,19 @@
+server:
+  port: 9001
+
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+
+eureka:
+  instance:
+    appname: eureka-client
+    lease-renewal-interval-in-seconds: 5
+  client:
+    enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8003/eureka/

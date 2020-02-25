@@ -1,0 +1,40 @@
+eureka:
+  server:
+    enable-self-preservation: true
+  instance:
+    appname: eureka-server
+    lease-renewal-interval-in-seconds: 5
+  client:
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/,http://localhost:8002/eureka/,http://localhost:8003/eureka/
+---
+spring:
+  profiles: peer1
+server:
+  port: 8001
+#eureka:
+#  client:
+#    service-url: 
+#      defaultZone: http://localhost:8002/eureka/
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 8002
+#eureka:
+#  client:
+#    service-url: 
+#      defaultZone: http://localhost:8001/eureka/
+
+---
+spring:
+  profiles: peer3
+server:
+  port: 8003
+#eureka:
+#  client:
+#    fetch-registry: true
+#    service-url: 
+#      defaultZone: http://localhost:8001/eureka/
